@@ -3,7 +3,6 @@ extern crate docopt;
 extern crate ethstore;
 extern crate ethkey;
 extern crate num_cpus;
-extern crate panic_hook;
 extern crate parking_lot;
 extern crate parity_crypto;
 extern crate rustc_hex;

@@ -16,7 +16,7 @@ serde_derive = "1.0"
 parking_lot = "0.10.0"
 parity-crypto = { version = "0.6.1", features = ["publickey"] }
 
-panic_hook = { path = "E:/Code/RustCode/openethereum-master/util/panic-hook" }
-ethstore = { path = "E:/Code/RustCode/openethereum-master/accounts/ethstore" }
-ethkey = { path = "E:/Code/RustCode/openethereum-master/accounts/ethkey" }
-dir = { path = 'E:/Code/RustCode/openethereum-master/util/dir' }
+panic_hook = { path = "./util/panic-hook" }
+ethstore = { path = "./accounts/ethstore" }
+ethkey = { path = "./accounts/ethkey" }
+dir = { path = './util/dir' }
