@@ -103,6 +103,26 @@ pub struct Args {
     pub flag_vault_pwd: String,
 }
 
+#[derive(Debug, Clone)]
+pub enum EthstoreNUM {
+    cmd_insert,
+    cmd_change_pwd,
+    cmd_list,
+    cmd_import,
+    cmd_import_wallet,
+    cmd_find_wallet_pass,
+    cmd_remove,
+    cmd_sign,
+    cmd_public,
+    cmd_list_vaults,
+    cmd_create_vault,
+    cmd_change_vault_pwd,
+    cmd_move_to_vault,
+    cmd_move_from_vault,
+    cmd_null
+}
+
+
 #[derive(Debug)]
 pub enum Error {
     Ethstore(ethstore::Error),
@@ -127,6 +147,40 @@ impl fmt::Display for Error {
             Error::Ethstore(ref err) => fmt::Display::fmt(err, f),
             Error::Docopt(ref err) => fmt::Display::fmt(err, f),
         }
+    }
+}
+// 获取ethstor下的子命令
+pub fn getsubcmd(args: &Args) -> EthstoreNUM {
+    return if args.cmd_insert {
+        EthstoreNUM::cmd_insert
+    } else if args.cmd_change_pwd {
+        EthstoreNUM::cmd_change_pwd
+    } else if args.cmd_list {
+        EthstoreNUM::cmd_list
+    } else if args.cmd_change_vault_pwd {
+        EthstoreNUM::cmd_change_vault_pwd
+    } else if args.cmd_create_vault {
+        EthstoreNUM::cmd_create_vault
+    } else if args.cmd_find_wallet_pass {
+        EthstoreNUM::cmd_find_wallet_pass
+    } else if args.cmd_import {
+        EthstoreNUM::cmd_import
+    } else if args.cmd_list_vaults {
+        EthstoreNUM::cmd_list_vaults
+    } else if args.cmd_move_from_vault {
+        EthstoreNUM::cmd_move_from_vault
+    } else if args.cmd_public {
+        EthstoreNUM::cmd_public
+    } else if args.cmd_remove {
+        EthstoreNUM::cmd_remove
+    } else if args.cmd_sign {
+        EthstoreNUM::cmd_sign
+    } else if args.cmd_move_to_vault {
+        EthstoreNUM::cmd_move_to_vault
+    } else if args.cmd_import_wallet {
+        EthstoreNUM::cmd_import_wallet
+    } else {
+        EthstoreNUM::cmd_null
     }
 }
 

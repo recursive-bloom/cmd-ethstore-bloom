@@ -21,6 +21,7 @@ serde = { version = "1.0.101", features = ["derive"] }
 sha3 = "0.8"
 structopt = "0.3.8"
 parking_lot = "0.10.0"
+tempfile = "3.1"
 ethstore = { path = "./ethstore_lib/accounts/ethstore" }
 
 #导入自定义的包
